@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="4c99da69-1a94-4284-8c39-b58b2709083f" name="https://github.com/Saleh95/Research.git" url="https://github.com/Saleh95/Research.git">
+        <fileTransfer host="https://github.com/Saleh95/Research.git" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
