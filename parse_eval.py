@@ -80,15 +80,6 @@ class ParseGen:
 
         return self.data_root
 
-    # def visit(self,n):
-    #     if isinstance(n,Tree):
-    #         if str(n) in self.tree_dict:
-    #             self.tree_dict[str(n)] = [len(n.children)]
-    #         else:
-    #             list(self.tree_dict.get(str(n))).append(len(n.children))
-    #         print n
-
-
     def solve_equality(self):
         for root in self.data_root:
             walk_tree_df_preorder(root)

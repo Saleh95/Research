@@ -25,9 +25,15 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Eval.py" />
+    <Compile Include="Logic_Processor.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="parse_eval.py" />
     <Compile Include="recursive_threading.py" />
     <Compile Include="Tree.py" />
+    <Compile Include="parse_declaration.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
