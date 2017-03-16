@@ -3,6 +3,8 @@ class data_(object):
         self.name= name
         self.type = type
         self.value = value
+    def __str__(self):
+        return self.name
 
     @property
     def get_type(self):

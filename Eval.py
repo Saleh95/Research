@@ -9,8 +9,8 @@ if __name__ == '__main__':
         input_ = raw_input()
         if input_ != "done;" and input_ != "":
             dat_ += input_
-    declarations_ = parse_declaration(dat_)
-    declarations_.parse_code()
+    var = parse_declaration(dat_)
+    declarations_ = var.parse_code()
     code_ = ""
     input_=""
     while input_ != "run;":
@@ -27,6 +27,7 @@ if __name__ == '__main__':
         p = Processor(data_,declarations_)
         print "Equation: " + snip_
         p.compare_trees()
+        print p.get_model
 
     
   

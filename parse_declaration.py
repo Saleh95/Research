@@ -7,6 +7,12 @@ class parse_declaration:
         self._code_list = []
         self._declarations = {}
 
+    def __getitem__(self, item):
+        try:
+            return getattr(self, self._declarations[str(item)])
+        except:
+            pass
+
     def declare_functions(self,line_):
         n_line = str(line_).split(":")[1]
         str_ = ""
@@ -39,7 +45,8 @@ class parse_declaration:
          n_line = str(line_).split(":")[1]
          str_ = ""
          for s in n_line:
-             str_ +=s
+             if s != " ":
+                str_ +=s
          
          consts_ = str_.split(",")
 
@@ -66,4 +73,5 @@ class parse_declaration:
                     self.declare_consts(line_)
             except Exception:
                 continue
+        print str(self._declarations)
         return self._declarations
