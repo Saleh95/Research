@@ -52,7 +52,7 @@ class parse_declaration:
 
          for c in consts_:
              al_ = str(c).split("=")
-             self._declarations[c[0]] = Const_(c[0],"const",c[1])
+             self._declarations[c[0]] = Const_(c[0],"const",value=c[1])
 
          print "lolll"
 

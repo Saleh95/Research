@@ -24,6 +24,8 @@ class Processor:
                 self.model += str(arg_1) + " can be equal " + str(arg_2) +"\n"
             elif arg_1.get_type == "var" and arg_2.get_type == "const":
                 self.model += str(arg_1) + " can be equal " + str(arg_2) +"\nwhen "+str(arg_1.value)+"\nequals "+str(arg_2.value)+"\n"
+            elif arg_1.get_type == "var" and arg_2.get_type == "func":
+                self.model += str(arg_1) + " can be equal " + str(arg_2) +"\nwhen "+str(arg_1.value)+"\nequals "+str(arg_2.value)+"\n"
     @property
     def get_model(self):
         return self.model
@@ -45,7 +47,7 @@ class Processor:
                         print self.declarations_[str(ch_1[k])].get_type
                         if isinstance(self.declarations_[str(ch_1[k])],data_) and isinstance(self.declarations_[str(ch_2[k])],data_):
                             if self.declarations_[str(ch_1[k])] != None and self.declarations_[str(ch_2[k])] != None:
-                                if (self.declarations_[str(ch_1[k])].get_type == self.declarations_[str(ch_2[k])].get_type) or (self.declarations_[str(ch_1[k])].get_type == "const" and self.declarations_[str(ch_2[k])].get_type == "var" )or (self.declarations_[str(ch_2[k])].get_type == "const" and self.declarations_[str(ch_1[k])].get_type == "var"):
+                                if (self.declarations_[str(ch_1[k])].get_type == self.declarations_[str(ch_2[k])].get_type) or (self.declarations_[str(ch_1[k])].get_type == "const" and self.declarations_[str(ch_2[k])].get_type == "var" )or (self.declarations_[str(ch_2[k])].get_type == "const" and self.declarations_[str(ch_1[k])].get_type == "var") or (self.declarations_[str(ch_1[k])].get_type == "const" and self.declarations_[str(ch_2[k])].get_type=="func"):
                                     self.build_model(self.declarations_[str(ch_1[k])],self.declarations_[str(ch_2[k])])
                                 else:
                                     return False

@@ -80,11 +80,6 @@ class ParseGen:
 
         return self.data_root
 
-    def solve_equality(self):
-        for root in self.data_root:
-            walk_tree_df_preorder(root)
-
-
 
 # g = ParseGen()
 
