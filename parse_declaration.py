@@ -19,7 +19,8 @@ class parse_declaration:
         name_ = ""
         i=0
         while n_line[i] != '(' and i<len(n_line):
-            name_ += n_line[i]
+            if n_line[i] != ' 'and n_line[i] != ',':
+                name_ += n_line[i]
             i+=1
         n_line= n_line[i:]
         for j in range(len(n_line)):
@@ -28,7 +29,6 @@ class parse_declaration:
 
         func_list = str_.split(",")
         self._declarations[name_]=Func_(name_,"func",func_list)
-        print str(func_list)
 
 
     def declar_vars(self,line_):
@@ -54,12 +54,9 @@ class parse_declaration:
              al_ = str(c).split("=")
              self._declarations[c[0]] = Const_(c[0],"const",value=c[1])
 
-         print "lolll"
-
 
 
     def parse_code(self):
-        print "whatever"
         self._code_list = str(self._code).split(";")
         print str(self._code_list)
         for line_ in self._code_list:
@@ -73,5 +70,4 @@ class parse_declaration:
                     self.declare_consts(line_)
             except Exception:
                 continue
-        print str(self._declarations)
         return self._declarations

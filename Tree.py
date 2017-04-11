@@ -1,10 +1,15 @@
 class Tree(object):
     """Generic tree."""
-    def __init__(self, name='', children=None):
+    def __init__(self, name, children=None):
         self.name = name
         if children is None:
             children = []
         self.children = children
+
+    @property
+    def hasChildren(self):
+        return (len(self.children)!=0)
+
     def __str__(self):
         return str(self.name)
 

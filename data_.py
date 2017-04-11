@@ -1,8 +1,12 @@
-class data_(object):
+from Tree import *
+
+class data_(Tree):
     def __init__(self,name,type,value=None):
         self.name= name
         self.type = type
         self.value = value
+        return super(data_,self).__init__(name)
+
     def __str__(self):
         return self.name
 

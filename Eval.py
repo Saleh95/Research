@@ -1,7 +1,6 @@
 from Logic_Processor import *
 from parse_declaration import *
 if __name__ == '__main__':
-    g = ParseGen()
     input_=""
     dat_=""
     print "Initialize:\n"
@@ -23,6 +22,7 @@ if __name__ == '__main__':
             code +=s
     code_list = code.split(";")
     for snip_ in code_list:
+        g = ParseGen(declarations_)
         data_ = g.get_data(snip_)
         p = Processor(data_,declarations_)
         print "Equation: " + snip_

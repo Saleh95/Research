@@ -28,8 +28,14 @@
     <Compile Include="Logic_Processor.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ModelBuilder.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="parse_eval.py" />
     <Compile Include="recursive_threading.py" />
+    <Compile Include="Sub_Tree.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Tree.py" />
     <Compile Include="parse_declaration.py">
       <SubType>Code</SubType>

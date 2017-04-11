@@ -1,6 +1,7 @@
 from Tree import *
 from parse_eval import *
 from  parse_declaration import *
+from ModelBuilder import *
 
 class Processor:
     def __init__(self,forest_,declarations_):
@@ -9,7 +10,6 @@ class Processor:
         self._comparables=[]
         self._elems=[]
         self.model = ""
-        print str(self.declarations_)
 
 
     def build_list(self):
@@ -19,13 +19,38 @@ class Processor:
             self._comparables.append(list_)
 
     def build_model(self,arg_1,arg_2):
+        acceptable = False
+        var = None
+        cross = None
+       
         if isinstance(arg_1,data_) and isinstance(arg_2,data_):
-            if arg_1.get_type == arg_2.get_type:
-                self.model += str(arg_1) + " can be equal " + str(arg_2) +"\n"
-            elif arg_1.get_type == "var" and arg_2.get_type == "const":
-                self.model += str(arg_1) + " can be equal " + str(arg_2) +"\nwhen "+str(arg_1.value)+"\nequals "+str(arg_2.value)+"\n"
-            elif arg_1.get_type == "var" and arg_2.get_type == "func":
-                self.model += str(arg_1) + " can be equal " + str(arg_2) +"\nwhen "+str(arg_1.value)+"\nequals "+str(arg_2.value)+"\n"
+            if arg_1.get_type == arg_2.get_type and arg_1.name == arg_2.name:
+                acceptable = True
+            elif arg_1.get_type == arg_2.get_type and arg_1.name != arg_2.name and arg_1.value == arg_2.value:
+                acceptable = True
+            elif arg_1.get_type == "var" and (arg_2.get_type == "const" or arg_2.get_type == "func"):
+                acceptable = True
+                var = arg_1
+                cross = arg_2
+            elif arg_2.get_type == "var" and (arg_1.get_type == "const" or arg_1.get_type == "func"):
+                var = arg_2
+                cross = arg_1
+
+        if acceptable and var!= None and cross != None:
+            return model_handler(var,cross)
+        else:
+            return acceptable
+
+    
+    def getComparables(self):
+        for item in self._comparables:
+            print str(item)
+  
+    def model_handler(self,args_1,args_2):
+        model_ = ModelBuilder(args_1,args_2)
+        model_.build_model()
+        return model_.define_model()
+               
     @property
     def get_model(self):
         return self.model
@@ -33,7 +58,9 @@ class Processor:
     def compare_items(self):
         i=0
         while i<len(self._comparables) and i+1 <len(self._comparables):
+            print str(len(self._comparables[i])) +':'+ str(len(self._comparables[i+1]))
             if len(self._comparables[i]) != len(self._comparables[i+1]):
+                print str(len(self._comparables[i])) +':'+ str(len(self._comparables[i+1]))
                 return False
             else:
                 j=0
@@ -44,11 +71,11 @@ class Processor:
                     ch_2 = self._comparables[i+1][j]["children"]
 
                     for k in range(len(ch_1)):
-                        print self.declarations_[str(ch_1[k])].get_type
+                        print str(ch_1[k]) +':'+ str(ch_2[k])
                         if isinstance(self.declarations_[str(ch_1[k])],data_) and isinstance(self.declarations_[str(ch_2[k])],data_):
                             if self.declarations_[str(ch_1[k])] != None and self.declarations_[str(ch_2[k])] != None:
                                 if (self.declarations_[str(ch_1[k])].get_type == self.declarations_[str(ch_2[k])].get_type) or (self.declarations_[str(ch_1[k])].get_type == "const" and self.declarations_[str(ch_2[k])].get_type == "var" )or (self.declarations_[str(ch_2[k])].get_type == "const" and self.declarations_[str(ch_1[k])].get_type == "var") or (self.declarations_[str(ch_1[k])].get_type == "const" and self.declarations_[str(ch_2[k])].get_type=="func"):
-                                    self.build_model(self.declarations_[str(ch_1[k])],self.declarations_[str(ch_2[k])])
+                                    self.build_model(ch_1[k],ch_2[k])
                                 else:
                                     return False
                     j+=1
@@ -58,6 +85,11 @@ class Processor:
 
     def compare_trees(self):
         self.build_list()
+        i=0
+        while i and i+1 in range(len(self.data_)):
+            if self.data_[i] != self.data_[i+1]:
+                print "Failure"
+                return
         if self.compare_items():
             print "Acceptable"
         else:
