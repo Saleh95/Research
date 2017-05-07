@@ -10,6 +10,7 @@ if __name__ == '__main__':
             dat_ += input_
     var = parse_declaration(dat_)
     declarations_ = var.parse_code()
+    print str(declarations_)
     code_ = ""
     input_=""
     while input_ != "run;":

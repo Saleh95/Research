@@ -76,7 +76,7 @@ class Sub:
 
     @property
     def get_value(self):
-        return self.val11
+        return self.val
 
     def __str__(self):
         return str(self.val)

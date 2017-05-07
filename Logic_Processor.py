@@ -14,9 +14,16 @@ class Processor:
 
     def build_list(self):
         for elm in self.data_:
+            print str(elm)
             list_=[]
             walk_tree_df_preorder(elm,list_)
+            print str(list_)
             self._comparables.append(list_)
+
+    def print_list(self):
+        for elm in self._comparables:
+            for el in elm:
+                print el
 
     def build_model(self,arg_1,arg_2):
         acceptable = False
@@ -56,35 +63,11 @@ class Processor:
         return self.model
 
     def compare_items(self):
-        i=0
-        while i<len(self._comparables) and i+1 <len(self._comparables):
-            print str(len(self._comparables[i])) +':'+ str(len(self._comparables[i+1]))
-            if len(self._comparables[i]) != len(self._comparables[i+1]):
-                print str(len(self._comparables[i])) +':'+ str(len(self._comparables[i+1]))
-                return False
-            else:
-                j=0
-                while j<len(self._comparables[i]):
-                    if self._comparables[i][j]["Length"] != self._comparables[i+1][j]["Length"]:
-                        return False
-                    ch_1 = self._comparables[i][j]["children"]
-                    ch_2 = self._comparables[i+1][j]["children"]
-
-                    for k in range(len(ch_1)):
-                        print str(ch_1[k]) +':'+ str(ch_2[k])
-                        if isinstance(self.declarations_[str(ch_1[k])],data_) and isinstance(self.declarations_[str(ch_2[k])],data_):
-                            if self.declarations_[str(ch_1[k])] != None and self.declarations_[str(ch_2[k])] != None:
-                                if (self.declarations_[str(ch_1[k])].get_type == self.declarations_[str(ch_2[k])].get_type) or (self.declarations_[str(ch_1[k])].get_type == "const" and self.declarations_[str(ch_2[k])].get_type == "var" )or (self.declarations_[str(ch_2[k])].get_type == "const" and self.declarations_[str(ch_1[k])].get_type == "var") or (self.declarations_[str(ch_1[k])].get_type == "const" and self.declarations_[str(ch_2[k])].get_type=="func"):
-                                    self.build_model(ch_1[k],ch_2[k])
-                                else:
-                                    return False
-                    j+=1
-            i+=1
-          
-        return True
+        pass
 
     def compare_trees(self):
         self.build_list()
+        self.getComparables()
         i=0
         while i and i+1 in range(len(self.data_)):
             if self.data_[i] != self.data_[i+1]:

@@ -3,6 +3,7 @@ from Tree import Tree,walk_tree_bf_gen, walk_tree_df_preorder
 import string
 from multiprocessing import Pool
 from parse_declaration import *
+import copy
 
 class ParseGen:
     def __init__(self,declarations):
@@ -35,6 +36,7 @@ class ParseGen:
         for dt in self.data_list:
             try:
                 alpha= self.enclosed.parseString(dt).asList()
+                print str(alpha)
             except:
                 break
             self.data_tree.append(alpha)
@@ -47,12 +49,13 @@ class ParseGen:
                     try:
                         if t == None:
                             t = self.ptrs[val]
+                            print 't'+str(t)
                         else:
                             ch_ = self.ptrs[val]
                             t.add_child(ch_)
+                            print 'ch'+str(ch_)
                     except KeyError:
-                        pass
-
+                        print str(self.ptrs[val])
                 elif isinstance(val, list):
                     if not ch_:
                         ch_ = t
@@ -60,7 +63,7 @@ class ParseGen:
 
                 elif str(val) == ',' or str(val) == ' ' or str(val) == '\n':
                     continue
-                else:
+                else: 
                     self.build_tree(val, ch_)
 
 
@@ -70,10 +73,15 @@ class ParseGen:
         i=0
         for x in self.data_tree:
             try:
-                t = self.ptrs[str(self.roots[i])]
+                t = copy.deepcopy(self.ptrs[str(self.roots[i])])
+                print 'root'+str(t)
                 self.build_tree(x,t)
                 self.data_root.append(t)
             except KeyError:
                 pass
             i+=1
+        for elm in self.data_root:
+                print str(elm)
+                for el in elm:
+                    print str(el)
         return self.data_root
