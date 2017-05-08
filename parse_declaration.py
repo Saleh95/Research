@@ -1,5 +1,5 @@
-from parse_eval import *
 from data_ import *
+from Tree import *
 
 class parse_declaration:
     def __init__(self,code_data):
@@ -53,7 +53,6 @@ class parse_declaration:
          for c in consts_:
              al_ = str(c).split("=")
              self._declarations[c[0]] = Const_(c[0],"const",value=c[1])
-
 
 
     def parse_code(self):

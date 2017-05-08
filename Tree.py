@@ -3,8 +3,8 @@ from data_ import data_
 class Func_(data_):
     def __init__(self, name, type, value = None):
         self.params_num = 0
-        self.call_params = []
-        self.children = {}
+        self.call_params = {}
+        self.children = []
         return super(Func_, self).__init__(name, type, value)
 
     def __str__(self):
@@ -22,18 +22,18 @@ class Func_(data_):
         self.call_params = cal_
 
     @property
-    def add_call_param(self,param_):
-        self.call_params.append(param_)
+    def add_child(self,param_):
+        self.children.append(param_)
 
     def merge_children(self):
-        self.children=dict(zip(self.value,self.call_params))
+        self.call_params=dict(zip(self.value,self.children))
 
     @property
     def hasChildren(self):
         return (len(self.children) != 0)
 
 
-def walk_tree_df_preorder(node,list_):
+def walk_tree_df_preorder(dict_,node,list_):
     if isinstance(list_,list):
         list_.append(node)
     if isinstance(node,Func_):

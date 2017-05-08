@@ -18,6 +18,10 @@ class data_:
         self.value = val
 
     @property
+    def get_value(self):
+        return self.value
+
+    @property
     def set_sub(self,node):
         self.sub.append(node)
 

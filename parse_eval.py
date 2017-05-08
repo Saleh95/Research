@@ -1,5 +1,5 @@
 from pyparsing import *
-from Tree import Tree,walk_tree_bf_gen, walk_tree_df_preorder
+from Tree import walk_tree_df_preorder
 import string
 from multiprocessing import Pool
 from parse_declaration import *
@@ -51,9 +51,10 @@ class ParseGen:
                             t = self.ptrs[val]
                             print 't'+str(t)
                         else:
-                            ch_ = self.ptrs[val]
-                            t.add_child(ch_)
-                            print 'ch'+str(ch_)
+                            if isinstance(ch_,Var_):
+                                ch_ = self.ptrs[val]
+                                t.add_child(ch_)
+                                print 'ch'+str(ch_)
                     except KeyError:
                         print str(self.ptrs[val])
                 elif isinstance(val, list):
@@ -76,6 +77,8 @@ class ParseGen:
                 t = copy.deepcopy(self.ptrs[str(self.roots[i])])
                 print 'root'+str(t)
                 self.build_tree(x,t)
+                if isinstance(t,Func_):
+                    t.merge_children()
                 self.data_root.append(t)
             except KeyError:
                 pass
