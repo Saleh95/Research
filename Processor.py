@@ -7,19 +7,32 @@ class Processor:
         self.graph=Graph(declarations)
         self.covered={}
 
+    def has_elm(self,arg_1,arg_2):
+        if len(arg_1.get_sub) != 0:
+            for elm in arg_1.get_sub:
+                if isinstance(elm, Func_):
+                    print "llll"
+                    for v in elm.children:
+                        if v != arg_2:
+                            arg_1.set_sub(arg_2)
+                            return True
+        return False
+
     def build_edges(self,arg_1,arg_2):
         if isinstance(arg_1, data_) and isinstance(arg_2, data_):
-            if arg_1.get_type=="func" and arg_2.get_type=="func" and arg_1.name != arg_2.name:
+            if isinstance(arg_1,Func_) and isinstance(arg_2,Func_) and arg_1.name != arg_2.name:
+                print "Fail 1"
                 return False
 
             elif isinstance(arg_1,Func_) and isinstance(arg_2,Func_):
-                for k in arg_1.get_call_params:
+                for k,v in arg_1.get_call_params.iteritems():
                     self.build_edges(arg_1.get_call_params[k],arg_2.get_call_params[k])
 
-            elif arg_1.get_type=="var":
-                arg_1.set_sub(arg_2)
+            elif isinstance(arg_1,Var_):
+                if not(self.has_elm(arg_1,arg_2)):
+                    arg_1.set_sub(arg_2)
 
-            elif arg_1.get_type=="const" and arg_2.get_type=="const":
+            elif isinstance(arg_1,Const_) and isinstance(arg_2,Const_):
                 if arg_1.get_value != arg_2.get_value:
                     return False
 
@@ -28,20 +41,23 @@ class Processor:
                     arg_2.set_sub(arg_1)
 
             self.covered[str(arg_1)] = arg_1.get_sub
+            print str(arg_1)+"="+','.join(str(elm) for elm in arg_1.get_sub)
             return True
 
     def nested_edges(self):
-        for k in self.covered:
-            if isinstance(self.covered[k],data_):
-                if len(self.covered[k].sub)>1:
-                    for i in range(len(self.covered.sub)):
-                        accepted = self.build_edges(self.covered.sub[i],self.covered.sub[i+1])
-                        if not accepted:
-                            return False
+        for k,v in self.covered.iteritems():
+            if len(v)>1:
+                for i in range(len(v)):
+                    print  "1st"+str(v[i])
+                    print "2nd"+str(v[i+1])
+                    accepted = self.build_edges(v[i],v[i+1])
+                    if not accepted:
+                        print "Fail here"
+                        return False
 
-                return True
-
+        return True
 
     def get_model(self):
-        for k in self.covered:
-            print str(self.covered[k])
+        print str(self.covered)
+        for k,v in self.covered.iteritems():
+            print str(k)+"="+','.join(str(elm) for elm in v)

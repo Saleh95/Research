@@ -28,7 +28,7 @@ class parse_declaration:
                 str_ += n_line[j]
 
         func_list = str_.split(",")
-        self._declarations[name_]=Func_(name_,"func",func_list)
+        self._declarations[name_]=Func_(name_,func_list)
 
 
     def declar_vars(self,line_):
@@ -39,7 +39,7 @@ class parse_declaration:
                 str_ += n_line[j]
         vars_ = str_.split(",")
         for s in str_:
-            self._declarations[s] = Var_(s,"var")
+            self._declarations[s] = Var_(s)
         
     def declare_consts(self,line_):
          n_line = str(line_).split(":")[1]
@@ -52,7 +52,7 @@ class parse_declaration:
 
          for c in consts_:
              al_ = str(c).split("=")
-             self._declarations[c[0]] = Const_(c[0],"const",value=c[1])
+             self._declarations[c[0]] = Const_(c[0],value=c[1])
 
 
     def parse_code(self):

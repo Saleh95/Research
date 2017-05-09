@@ -1,17 +1,12 @@
-class data_:
-    def __init__(self,name,type,value=None):
+class data_(object):
+    def __init__(self,name,value=None):
         self.name= name
-        self.type = type
         self.value = value
         self.sub = []
 
 
     def __str__(self):
         return self.name
-
-    @property
-    def get_type(self):
-        return self.type
 
     @property
     def set_value(self,val):
@@ -21,7 +16,6 @@ class data_:
     def get_value(self):
         return self.value
 
-    @property
     def set_sub(self,node):
         self.sub.append(node)
 
@@ -30,10 +24,9 @@ class data_:
         return self.sub
 
 
-
 class Var_(data_):
-    def __init__(self, name, type, value = None):
-        return super(Var_, self).__init__(name, type, value)
+    def __init__(self, name, value = None):
+        return super(Var_, self).__init__(name, value)
 
     @property
     def set_alter(self,data):
@@ -41,8 +34,8 @@ class Var_(data_):
 
         
 class Const_(data_):
-    def __init__(self, name, type, value = None):
-        return super(Const_, self).__init__(name, type, value=self)
+    def __init__(self, name, value = None):
+        return super(Const_, self).__init__(name, value)
 
 
 

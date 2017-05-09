@@ -21,24 +21,35 @@ class LogicProcessor:
             print str(list_)
             self._comparables.append(list_)
 
+    def print_list(self):
+        for elm in self._comparables:
+            print ','.join(str(v) for v in elm)
+
     def get_smaller(self,arg_1,arg_2):
         if len(arg_1)<len(arg_2):
             return len(arg_1)
-        return (arg_2)
+        return len(arg_2)
 
 
     def compare_trees(self):
-        for i in range(len(self._comparables)):
+        accepted=False
+        self.build_list()
+        self.print_list()
+        i=0
+        while i+1 <len(self._comparables):
             sm=self.get_smaller(self._comparables[i],self._comparables[i+1])
             for j in range(sm):
                 accepted=self.prc.build_edges(self._comparables[i][j],self._comparables[i+1][j])
                 if not accepted:
                     print "They can't be equal"
 
+            print "smmmmm"
             check=self.prc.nested_edges()
-            if check:
+            print str(check)
+            if check and accepted:
                 print "They can be equal"
+                self.prc.get_model()
             else:
                 print "They can't be equal"
 
-            self.prc.get_model()
+            i += 1

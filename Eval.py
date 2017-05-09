@@ -25,10 +25,10 @@ if __name__ == '__main__':
     for snip_ in code_list:
         g = ParseGen(declarations_)
         data_ = g.get_data(snip_)
-        p = Processor(data_,declarations_)
+        p = LogicProcessor(data_,declarations_)
         print "Equation: " + snip_
         p.compare_trees()
-        print p.get_model
+
 
     
   

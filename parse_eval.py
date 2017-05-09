@@ -51,10 +51,11 @@ class ParseGen:
                             t = self.ptrs[val]
                             print 't'+str(t)
                         else:
-                            if isinstance(ch_,Var_):
-                                ch_ = self.ptrs[val]
+                            ch_ = copy.deepcopy(self.ptrs[val])
+                            if isinstance(t,Func_):
                                 t.add_child(ch_)
-                                print 'ch'+str(ch_)
+                            print 'ch'+str(ch_)
+
                     except KeyError:
                         print str(self.ptrs[val])
                 elif isinstance(val, list):
@@ -75,7 +76,6 @@ class ParseGen:
         for x in self.data_tree:
             try:
                 t = copy.deepcopy(self.ptrs[str(self.roots[i])])
-                print 'root'+str(t)
                 self.build_tree(x,t)
                 if isinstance(t,Func_):
                     t.merge_children()
