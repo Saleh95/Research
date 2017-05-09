@@ -17,7 +17,7 @@ class LogicProcessor:
     def build_list(self):
         for elm in self.data_:
             list_=[]
-            walk_tree_df_preorder(elm,list_)
+            walk_tree_bf(elm,list_)
             print str(list_)
             self._comparables.append(list_)
 

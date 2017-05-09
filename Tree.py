@@ -41,14 +41,16 @@ def walk_tree_df_preorder(node,list_):
 #         walk_tree_df_preorder(child, visit)
 #     visit(node)
 
-# def walk_tree_bf(node, visit):
-#     to_visit = [node]
-#     while to_visit:
-#         new_to_visit = []
-#         for node in to_visit:
-#             visit(node)
-#             new_to_visit.extend(node.children)
-#         to_visit = new_to_visit
+def walk_tree_bf(node, list_):
+    to_visit = [node]
+    while to_visit:
+        new_to_visit = []
+        for node in to_visit:
+            if isinstance(list_, list):
+                list_.append(node)
+            if isinstance(node,Func_):
+                new_to_visit.extend(node.children)
+        to_visit = new_to_visit
 #
 # def walk_tree_bf_gen(node):
 #     if isinstance(node,Tree):

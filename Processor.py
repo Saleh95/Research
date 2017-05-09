@@ -7,17 +7,6 @@ class Processor:
         self.graph=Graph(declarations)
         self.covered={}
 
-    def has_elm(self,arg_1,arg_2):
-        if len(arg_1.get_sub) != 0:
-            for elm in arg_1.get_sub:
-                if isinstance(elm, Func_):
-                    print "llll"
-                    for v in elm.children:
-                        if v != arg_2:
-                            arg_1.set_sub(arg_2)
-                            return True
-        return False
-
     def build_edges(self,arg_1,arg_2):
         if isinstance(arg_1, data_) and isinstance(arg_2, data_):
             if isinstance(arg_1,Func_) and isinstance(arg_2,Func_) and arg_1.name != arg_2.name:
@@ -29,8 +18,7 @@ class Processor:
                     self.build_edges(arg_1.get_call_params[k],arg_2.get_call_params[k])
 
             elif isinstance(arg_1,Var_):
-                if not(self.has_elm(arg_1,arg_2)):
-                    arg_1.set_sub(arg_2)
+                arg_1.set_sub(arg_2)
 
             elif isinstance(arg_1,Const_) and isinstance(arg_2,Const_):
                 if arg_1.get_value != arg_2.get_value:
@@ -47,13 +35,13 @@ class Processor:
     def nested_edges(self):
         for k,v in self.covered.iteritems():
             if len(v)>1:
-                for i in range(len(v)):
-                    print  "1st"+str(v[i])
-                    print "2nd"+str(v[i+1])
+                i=0
+                while (i+1) <(len(v)):
                     accepted = self.build_edges(v[i],v[i+1])
                     if not accepted:
                         print "Fail here"
                         return False
+                    i+=1
 
         return True
 

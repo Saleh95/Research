@@ -2,33 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69f1bb5d-4448-47db-bd49-0ecd1db684dc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Verifier/CodeVerifier/CodeParser/Logic_Processor.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Verifier/CodeVerifier/CodeParser/Processor.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Verifier/CodeVerifier/CodeParser/Tree.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Verifier/CodeVerifier/CodeParser/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Verifier/CodeVerifier/CodeParser/data_.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Verifier/CodeVerifier/CodeParser/parse_declaration.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Verifier/CodeVerifier/CodeParser/parse_eval.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Verifier/CodeVerifier/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Verifier/CodeVerifier/admin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Verifier/CodeVerifier/apps.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Verifier/CodeVerifier/migrations/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Verifier/CodeVerifier/models.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Verifier/CodeVerifier/tests.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Verifier/CodeVerifier/views.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Verifier/Verifier/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Verifier/Verifier/settings.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Verifier/Verifier/urls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Verifier/Verifier/wsgi.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Verifier/manage.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Eval.py" afterPath="$PROJECT_DIR$/Eval.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Logic_Processor.py" afterPath="$PROJECT_DIR$/Logic_Processor.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Processor.py" afterPath="$PROJECT_DIR$/Processor.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tree.py" afterPath="$PROJECT_DIR$/Tree.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data_.py" afterPath="$PROJECT_DIR$/data_.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/parse_declaration.py" afterPath="$PROJECT_DIR$/parse_declaration.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/parse_eval.py" afterPath="$PROJECT_DIR$/parse_eval.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -50,8 +27,8 @@
       <file leaf-file-name="Tree.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tree.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="128">
+              <caret line="51" column="16" lean-forward="false" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -84,8 +61,8 @@
       <file leaf-file-name="Logic_Processor.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Logic_Processor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+            <state relative-caret-position="96">
+              <caret line="19" column="24" lean-forward="false" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -96,8 +73,8 @@
       <file leaf-file-name="Processor.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Processor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-233">
-              <caret line="35" column="54" lean-forward="false" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="54" />
+            <state relative-caret-position="111">
+              <caret line="35" column="41" lean-forward="false" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="41" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -164,10 +141,10 @@
         <option value="$PROJECT_DIR$/Graph.py" />
         <option value="$PROJECT_DIR$/Eval.py" />
         <option value="$PROJECT_DIR$/parse_declaration.py" />
-        <option value="$PROJECT_DIR$/Tree.py" />
         <option value="$PROJECT_DIR$/data_.py" />
-        <option value="$PROJECT_DIR$/Logic_Processor.py" />
         <option value="$PROJECT_DIR$/parse_eval.py" />
+        <option value="$PROJECT_DIR$/Logic_Processor.py" />
+        <option value="$PROJECT_DIR$/Tree.py" />
         <option value="$PROJECT_DIR$/Processor.py" />
       </list>
     </option>
@@ -181,7 +158,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="10" />
     <option name="y" value="20" />
-    <option name="width" value="1346" />
+    <option name="width" value="1348" />
     <option name="height" value="688" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -492,18 +469,26 @@
       <option name="project" value="LOCAL" />
       <updated>1494253866616</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Updated model checker">
+      <created>1494290978977</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1494290978977</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="10" y="20" width="1346" height="688" extended-state="0" />
+    <frame x="10" y="20" width="1348" height="688" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2736842" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27327326" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32871974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32871974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35986158" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -801,14 +786,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data_.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
@@ -859,18 +836,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Logic_Processor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        <state relative-caret-position="96">
+          <caret line="19" column="24" lean-forward="false" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Tree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="51" column="16" lean-forward="false" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Processor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-233">
-          <caret line="35" column="54" lean-forward="false" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="54" />
+        <state relative-caret-position="111">
+          <caret line="35" column="41" lean-forward="false" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="41" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
