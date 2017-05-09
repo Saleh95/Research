@@ -43,7 +43,6 @@ class LogicProcessor:
                 if not accepted:
                     print "They can't be equal"
 
-            print "smmmmm"
             check=self.prc.nested_edges()
             print str(check)
             if check and accepted:

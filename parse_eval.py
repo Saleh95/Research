@@ -83,8 +83,4 @@ class ParseGen:
             except KeyError:
                 pass
             i+=1
-        for elm in self.data_root:
-                print str(elm)
-                for el in elm:
-                    print str(el)
         return self.data_root

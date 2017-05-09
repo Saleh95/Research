@@ -14,7 +14,7 @@ class Processor:
                 return False
 
             elif isinstance(arg_1,Func_) and isinstance(arg_2,Func_):
-                for k,v in arg_1.get_call_params.iteritems():
+                for k in arg_1.get_call_params.keys():
                     self.build_edges(arg_1.get_call_params[k],arg_2.get_call_params[k])
 
             elif isinstance(arg_1,Var_):
@@ -44,6 +44,8 @@ class Processor:
                     i+=1
 
         return True
+
+
 
     def get_model(self):
         print str(self.covered)
