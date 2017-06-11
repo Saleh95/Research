@@ -83,4 +83,5 @@ class ParseGen:
             except KeyError:
                 pass
             i+=1
+
         return self.data_root

@@ -7,6 +7,10 @@ class Processor:
         self.graph=Graph(declarations)
         self.covered={}
 
+    def set_covered(self,lis):
+        for elm in lis:
+            self.covered[str(elm)]=""
+
     def build_edges(self,arg_1,arg_2):
         if isinstance(arg_1, data_) and isinstance(arg_2, data_):
             if isinstance(arg_1,Func_) and isinstance(arg_2,Func_) and arg_1.name != arg_2.name:
@@ -29,6 +33,12 @@ class Processor:
                     arg_2.set_sub(arg_1)
 
             self.covered[str(arg_1)] = arg_1.get_sub
+            if isinstance(arg_1,Func_):
+                for ch in arg_1.children:
+                    if str(ch) in self.covered:
+                        continue
+                    else:
+                        self.covered[str(ch)]=""
             print str(arg_1)+"="+','.join(str(elm) for elm in arg_1.get_sub)
             return True
 

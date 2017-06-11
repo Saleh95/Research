@@ -34,7 +34,8 @@ class LogicProcessor:
     def compare_trees(self):
         accepted=False
         self.build_list()
-        self.print_list()
+        for elm in self._comparables:
+            self.prc.set_covered(elm)
         i=0
         while i+1 <len(self._comparables):
             sm=self.get_smaller(self._comparables[i],self._comparables[i+1])
