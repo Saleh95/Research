@@ -7,13 +7,18 @@ class Processor:
         self.graph=Graph(declarations)
         self.covered={}
 
+    def set_covered(self,lis):
+        for elm in lis:
+            self.covered[str(elm)]=""
+
     def build_edges(self,arg_1,arg_2):
         if isinstance(arg_1, data_) and isinstance(arg_2, data_):
             if isinstance(arg_1,Func_) and isinstance(arg_2,Func_) and arg_1.name != arg_2.name:
+                print "Fail 1"
                 return False
 
             elif isinstance(arg_1,Func_) and isinstance(arg_2,Func_):
-                for k in arg_1.get_call_params:
+                for k in arg_1.get_call_params.keys():
                     self.build_edges(arg_1.get_call_params[k],arg_2.get_call_params[k])
 
             elif isinstance(arg_1,Var_):
@@ -28,20 +33,31 @@ class Processor:
                     arg_2.set_sub(arg_1)
 
             self.covered[str(arg_1)] = arg_1.get_sub
+            if isinstance(arg_1,Func_):
+                for ch in arg_1.children:
+                    if str(ch) in self.covered:
+                        continue
+                    else:
+                        self.covered[str(ch)]=""
+            print str(arg_1)+"="+','.join(str(elm) for elm in arg_1.get_sub)
             return True
 
     def nested_edges(self):
-        for k in self.covered:
-            if isinstance(self.covered[k],data_):
-                if len(self.covered[k].sub)>1:
-                    for i in range(len(self.covered.sub)):
-                        accepted = self.build_edges(self.covered.sub[i],self.covered.sub[i+1])
-                        if not accepted:
-                            return False
+        for k,v in self.covered.iteritems():
+            if len(v)>1:
+                i=0
+                while (i+1) <(len(v)):
+                    accepted = self.build_edges(v[i],v[i+1])
+                    if not accepted:
+                        print "Fail here"
+                        return False
+                    i+=1
 
-                return True
+        return True
+
 
 
     def get_model(self):
-        for k in self.covered:
-            print str(self.covered[k])
+        print str(self.covered)
+        for k,v in self.covered.iteritems():
+            print str(k)+"="+','.join(str(elm) for elm in v)

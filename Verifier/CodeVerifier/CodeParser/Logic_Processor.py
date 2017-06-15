@@ -17,9 +17,13 @@ class LogicProcessor:
     def build_list(self):
         for elm in self.data_:
             list_=[]
-            walk_tree_df_preorder(elm,list_)
+            walk_tree_bf(elm,list_)
             print str(list_)
             self._comparables.append(list_)
+
+    def print_list(self):
+        for elm in self._comparables:
+            print ','.join(str(v) for v in elm)
 
     def get_smaller(self,arg_1,arg_2):
         if len(arg_1)<len(arg_2):
@@ -28,7 +32,10 @@ class LogicProcessor:
 
 
     def compare_trees(self):
+        accepted=False
         self.build_list()
+        for elm in self._comparables:
+            self.prc.set_covered(elm)
         i=0
         while i+1 <len(self._comparables):
             sm=self.get_smaller(self._comparables[i],self._comparables[i+1])
@@ -38,10 +45,11 @@ class LogicProcessor:
                     print "They can't be equal"
 
             check=self.prc.nested_edges()
-            if check:
+            print str(check)
+            if check and accepted:
                 print "They can be equal"
+                self.prc.get_model()
             else:
                 print "They can't be equal"
 
-            self.prc.get_model()
             i += 1
